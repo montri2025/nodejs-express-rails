@@ -4,6 +4,37 @@ var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+
+/*
+ * Bootstrap db connection connect to mongodb
+ */
+var connect = function() {
+	var options = {
+		server : {
+			socketOptins : {
+				keepAlive : 1
+			}
+		}
+	};
+	mongoose.connect('mongodb://localhost/noobjs_nodjseprails', options);
+};
+
+connect();
+/*
+ * Mongodb connection error handler
+ */
+mongoose.connection.on('error', function(err) {
+	console.log(err);
+});
+
+/*
+ * Mongodb reconnection when connection close
+ */
+mongoose.connection.on('disconnected', function() {
+	connect();
+});
+
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
