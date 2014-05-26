@@ -1,4 +1,8 @@
+/*
+ * Modules dependencyis 
+ */
 var express = require('express');
+var fs = require('fs');
 var path = require('path');
 var favicon = require('static-favicon');
 var logger = require('morgan');
@@ -35,14 +39,22 @@ mongoose.connection.on('disconnected', function() {
 	connect();
 });
 
+/*
+ * Bootstrap models
+ */
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
+var models_path = __dirname + '/app/models';
+fs.readdirSync(models_path).forEach(function(files_name) {
+	if (~filename.indexOf('.js')) {
+		require(models_path + '/' + files_name);
+	}
+});
+
 
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'app/views'));
 app.set('view engine', 'jade');
 
 app.use(favicon());
@@ -53,8 +65,12 @@ app.use(cookieParser());
 app.use(require('stylus').middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.use('/users', users);
+
+
+/*
+ * Bootstrap rountes
+ */
+require('./config/routes')(app);
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
