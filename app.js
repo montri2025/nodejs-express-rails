@@ -11,6 +11,15 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
 /*
+ * Environment server
+ */
+var env = process.env.NODE_ENV || 'development';
+
+/*
+ * Load configurations
+ */
+var config = require('./config/config')[env];
+/*
  * Bootstrap db connection connect to mongodb
  */
 var connect = function() {
@@ -21,7 +30,7 @@ var connect = function() {
 			}
 		}
 	};
-	mongoose.connect('mongodb://localhost/noobjs_nodjseprails', options);
+	mongoose.connect(config.mongodb, options);
 };
 
 connect();

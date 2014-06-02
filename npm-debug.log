@@ -18,7 +18,7 @@
 11 error You can get their info via:
 11 error     npm owner ls application-name
 11 error There is likely additional logging output above.
-12 error System Darwin 13.1.0
+12 error System Darwin 13.2.0
 13 error command "node" "/usr/local/bin/npm" "start"
 14 error cwd /Users/montri/Documents/workspace/nodejs-express-rails
 15 error node -v v0.10.28
