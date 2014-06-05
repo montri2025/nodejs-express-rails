@@ -15,5 +15,9 @@
     "morgan": "~1.0.0",
     "static-favicon": "~1.0.0",
     "stylus": "0.42.3"
+  },
+  "devDependencies": {
+    "supertest": "latest",
+	"mocha": "latest"
   }
 }

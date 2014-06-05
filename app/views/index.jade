@@ -9,20 +9,25 @@ block content
           span(class='icon-bar')
           span(class='icon-bar')
           span(class='icon-bar')
-        a(class='brand', href='#') Project Name   
+        a(class='brand', href='#') #{title}   
         div(class='nav-collapse collapse') 
            ul(class='nav')
              li(class='active')
                a(href='#') Home
              li
-               a(href='#about') blog
+               a(href='#about') Board
              li 
-               a(href='Contact') Contact
+               a(href='Contact') Register
            form(class="navbar-form pull-right") 
-             input(class="span2", type="text", placeholder="Email")
-             input(class="span2", type="password", placeholder="Password")
-             button(type="submit", class="btn") Sign in 
+             input(type="text" placeholder="Email" class="span2")
+             | &nbsp;
+             input(type="password" placeholder="Password" class="span2")
+             | &nbsp;
+             button(class="btn" type="submit") Sign in 
    div(class="container")
      div(class="hero-unit") 
-      h1= title
-      p Welcome to #{title}                     
+      h1 Welcome to #{title}
+      h2= fullBrand 
+      p This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.                   
+      p 
+       a(href="#",class="btn btn-primary btn-large") Learn more »
