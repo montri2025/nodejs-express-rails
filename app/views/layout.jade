@@ -1,10 +1,32 @@
 doctype html
 html
   head
-    title= title
+    title #{title} BRENM
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet',href='/stylesheets/bootstrap.min.css')
     link(rel='stylesheet',href='/stylesheets/bootstrap-responsive.min.css')
     link(rel="shortcut icon", href="/images/favicon.png")
   body
-    block content
+   div(class='navbar navbar-inverse navbar-fixed-top')
+    div(class='navbar-inner')
+      div(class="container")
+        botton(type='button', class='btn btn-navbar', data-toggle='container', data-target='.nav-collapse')
+          span(class='icon-bar')
+          span(class='icon-bar')
+          span(class='icon-bar')
+        a(class='brand', href='/') BRENM  
+        div(class='nav-collapse collapse') 
+           ul(class='nav')
+             li(class='#{menuIndex}')
+               a(href='/') Home
+             li(class='#{menuBoard}')
+               a(href='/board') Board
+             li(class='#{menuRegister}') 
+               a(href='/register') Register
+           form(class="navbar-form pull-right") 
+             input(type="text" placeholder="Email" class="span2")
+             | &nbsp;
+             input(type="password" placeholder="Password" class="span2")
+             | &nbsp;
+             button(class="btn" type="submit") Sign in   
+   block content

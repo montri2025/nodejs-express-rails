@@ -1,29 +1,7 @@
 extends layout
 
 block content
-  
-  div(class='navbar navbar-inverse navbar-fixed-top')
-    div(class='navbar-inner')
-      div(class="container")
-        botton(type='button', class='btn btn-navbar', data-toggle='container', data-target='.nav-collapse')
-          span(class='icon-bar')
-          span(class='icon-bar')
-          span(class='icon-bar')
-        a(class='brand', href='#') #{title}   
-        div(class='nav-collapse collapse') 
-           ul(class='nav')
-             li(class='active')
-               a(href='#') Home
-             li
-               a(href='#about') Board
-             li 
-               a(href='Contact') Register
-           form(class="navbar-form pull-right") 
-             input(type="text" placeholder="Email" class="span2")
-             | &nbsp;
-             input(type="password" placeholder="Password" class="span2")
-             | &nbsp;
-             button(class="btn" type="submit") Sign in 
+
    div(class="container")
      div(class="hero-unit") 
       h1 Welcome to #{title}
